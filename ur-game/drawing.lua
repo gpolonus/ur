@@ -10,10 +10,7 @@ local start_spot_y = 100
 
 
 -- draw everything on the board
-function drawGame(game, typed_hover_spot)
-
-  -- change the typed_hover_spot from a typed object to the object itself
-  hover_spot = typed_hover_spot()
+function drawGame(game, hover_spot)
 
   drawBoard(game.board)
 

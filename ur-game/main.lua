@@ -72,7 +72,7 @@ end
 
 function set_hover_spot(num)
   if num < 1 then
-    hover_spot:reset()
+    hover_spot = nil
   else
     hover_spot_num = num
     hover_spot = game.movable_spots[num]
