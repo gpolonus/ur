@@ -6,12 +6,12 @@ local Player = require 'player'
 local Board = require 'board'
 
 
-local STATUSES = {
-  START = 0,
-  ROLLING = 1,
-  MOVING = 2,
-  FINISHED = 3
-}
+local STATUSES = enum({
+  'START',
+  'ROLLING',
+  'MOVING',
+  'FINISHED'
+})
 
 
 -- * 3 2 1      *(12/16) 13/15
@@ -45,7 +45,7 @@ function Game:roll()
       math.random(0, 1)
     }
     self.rolls = rolls
-    self.spaces_to_move = reduce(rolls, function(ac, r) return ac + r end)
+    self.spaces_to_move = sum(rolls)
     self.movable_spots = self.board:makePiecesMovable(self.active_player, self.spaces_to_move)
     self.status = STATUSES.MOVING
   end

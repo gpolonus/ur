@@ -1,6 +1,6 @@
 
 
-function class(func)
+local function class(func)
   local obj = {}
   obj.__index = obj
 

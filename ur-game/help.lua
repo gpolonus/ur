@@ -170,7 +170,23 @@ function switch(value, options)
       return nil
     end
   else
-    return options[value](value)
+    return func(value)
   end
+end
+
+
+function enum(keywords)
+  local i = 1
+  return reduce(keywords, function(ac, next)
+    ac[next] = i
+    i = i + 1
+    return ac
+  end, {})
+end
+
+
+function add(a, b) return a + b end
+function sum(nums)
+  return reduce(rolls, add)
 end
 

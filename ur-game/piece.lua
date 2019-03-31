@@ -41,6 +41,7 @@ function Piece:move()
 
     -- reset the piece that was on this spot to its first spot
     dest_spot.piece.spot = dest_spot.piece.player.spots[1]
+    dest_spot.piece.player:resetPieces()
   end
 
   -- put the piece down
